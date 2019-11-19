@@ -58,11 +58,12 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=" 코드헤어 | ★5/5 | eun8**** | 시컬펌 만족스럽게 나왔어요 일인 전담하여 시술 끝내주시고 손 다치셨는데 끝까지 웃으면서 해주셨어요 가격..."
-        android:background="@drawable/borderline"/>
+        <TextView
+            android:id="@+id/review_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borderline"
+            android:text=" 코드헤어 | ★5/5 | eun8**** | 시컬펌 만족스럽게 나왔어요 일인 전담하여 시술 끝내주시고 손 다치셨는데 끝까지 웃으면서 해주셨어요 가격..." />
 
     <ImageView
         android:layout_width="wrap_content"
