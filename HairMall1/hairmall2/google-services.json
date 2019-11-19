@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "34610745509",
-    "firebase_url": "https://hairmall-2bffc.firebaseio.com",
-    "project_id": "hairmall-2bffc",
-    "storage_bucket": "hairmall-2bffc.appspot.com"
+    "project_number": "649632855050",
+    "firebase_url": "https://hairmall-82ca8.firebaseio.com",
+    "project_id": "hairmall-82ca8",
+    "storage_bucket": "hairmall-82ca8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:34610745509:android:9e90c9bf9f1f8bcf3ebd4c",
+        "mobilesdk_app_id": "1:649632855050:android:6c5aad3c2e71c83156dbf3",
         "android_client_info": {
           "package_name": "com.example.hairmall2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "34610745509-r2d40v53bj6t0a488uuu6phj1ple5r23.apps.googleusercontent.com",
+          "client_id": "649632855050-mhsoro271vk4rabltugm3n39tic7nar1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDKiqUejW8ryXbPje-GU0SSo3BT4fRYqWg"
+          "current_key": "AIzaSyA9gLOhhMqwvhA9UUYxWg0WZcfDk7ryDkg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "34610745509-r2d40v53bj6t0a488uuu6phj1ple5r23.apps.googleusercontent.com",
+              "client_id": "649632855050-mhsoro271vk4rabltugm3n39tic7nar1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
