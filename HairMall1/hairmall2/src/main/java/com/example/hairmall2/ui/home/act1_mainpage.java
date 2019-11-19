@@ -2,6 +2,7 @@ package com.example.hairmall2.ui.home;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,13 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hairmall2.KnowIndexOnClickListener;
 import com.example.hairmall2.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class act1_mainpage extends Fragment {
 
@@ -74,5 +82,29 @@ public class act1_mainpage extends Fragment {
         return root;
     }
 
+    public void setFirebase(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Map<String, Object> user = new HashMap<>();
+        user.put("first", "Ada");
+        user.put("last", "Lovelace");
+        user.put("born", 1815);
+
+        // Add a new document with a generated ID
+        db.collection("users")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("test", "DocumentSnapshot added with ID: " +
+                                documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("test", "Error adding document", e);
+                    }
+                });
+    }
 
 }
