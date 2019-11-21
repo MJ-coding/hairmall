@@ -12,19 +12,21 @@
         android:src="@drawable/login_icon_small" />
 
     <EditText
+        android:id="@+id/edit_login_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="none"
         android:hint="hair mall 아이디"/> # width margin 남기도록 조절
 
     <EditText
+        android:id="@+id/edit_login_pw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="none"
         android:hint="비밀번호는 6자 이상~20자 이하"/>
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_login_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FF94B8"
@@ -38,6 +40,7 @@
         > # margin 남기기
 
         <CheckBox
+            android:id="@+id/check_login_autologin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="자동 로그인"/>
@@ -48,7 +51,7 @@
             android:gravity="right">
 
             <Button
-                android:id="@+id/btn_login_id_find"
+                android:id="@+id/btn_login_idfind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#FF94B8"
@@ -60,7 +63,7 @@
                 android:text="  "/>
 
             <Button
-                android:id="@+id/btn_login_pw_find"
+                android:id="@+id/btn_login_pwfind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#FF94B8"
@@ -90,6 +93,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="  "/>
+
+        <Button
+            android:id="@+id/btn_login_nobodylogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FF94B8"
+            android:text="비회원로그인 >"/>
 
 
 

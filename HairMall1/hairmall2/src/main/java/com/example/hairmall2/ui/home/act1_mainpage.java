@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,22 +20,33 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hairmall2.KnowIndexOnClickListener;
 import com.example.hairmall2.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class act1_mainpage extends Fragment {
 
     private act6_mainpageviewmodel homeViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container,
-                             Bundle savedInstanceState) {
+    private EditText edit_test;
+    private Button btn_test;
+    private TextView text_test;
+    private String text;
 
-        homeViewModel = ViewModelProviders.of(this).get(act6_mainpageviewmodel.class);
+
+    private String id;
+
+    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fir-test-7d2fa.firebaseio.com");
+    DatabaseReference childRef = mRootRef;
+
+
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        homeViewModel =
+                ViewModelProviders.of(this).get(act6_mainpageviewmodel.class);
         View root = inflater.inflate(R.layout.act1_mainpage, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(this, new Observer<String>() {
@@ -42,6 +55,16 @@ public class act1_mainpage extends Fragment {
                 textView.setText(s);
             }
         });
+
+
+
+        edit_test = root.findViewById(R.id.edit_test);
+        btn_test = root.findViewById(R.id.btn_test);
+        text_test = root.findViewById(R.id.text_test);
+
+        id=getActivity().getIntent().getExtras().getString("id"); // 로그인부터 시작 안하면 intent에러
+        Log.d("DEBUG2",id);
+
         // 메인 뷰 설정
         final Context context = getActivity();
 
@@ -79,32 +102,68 @@ public class act1_mainpage extends Fragment {
                 }
             });
         }
+
         return root;
     }
 
-    public void setFirebase(){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Map<String, Object> user = new HashMap<>();
-        user.put("first", "Ada");
-        user.put("last", "Lovelace");
-        user.put("born", 1815);
+    public void getFirebaseDatabase(){
+        childRef = mRootRef.child("test");
+        childRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                        String string = dataSnapshot.getValue(String.class);
+                        text_test.setText(string);
+                        Log.d("getFirebaseDatabaes","key : " + text);
 
-        // Add a new document with a generated ID
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("test", "DocumentSnapshot added with ID: " +
-                                documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("test", "Error adding document", e);
-                    }
-                });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("Tag", "Failed to read value.", databaseError.toException());
+            }
+        });
+
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        childRef = mRootRef.child("test");
+        childRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String string = dataSnapshot.getValue(String.class);
+                    text_test.setText(string);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("Tag", "Failed to read value.", databaseError.toException());
+            }
+        });
+
+        btn_test.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.btn_test:
+
+                        text = edit_test.getText().toString();
+                        childRef = mRootRef.child("test");
+                        childRef.setValue(text);
+                        getFirebaseDatabase();
+
+                        btn_test.setText(id);
+                }
+            }
+
+        });
+    }
 }

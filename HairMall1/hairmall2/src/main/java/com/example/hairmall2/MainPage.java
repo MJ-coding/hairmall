@@ -1,40 +1,45 @@
 package com.example.hairmall2;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 public class MainPage extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    private EditText edit_test;
+    private Button btn_test;
+    private TextView text_test;
+    private String text;
+
+    private String id;
+    /*
+        public String getId() {
+            return id;
+        }
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act2_menubar);
 
-
-        // 네비게이션 바 설정 부분
+        //네비게이션 바 설정 부분
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -52,6 +57,13 @@ public class MainPage extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        edit_test = findViewById(R.id.edit_test);
+        btn_test = findViewById(R.id.btn_test);
+        text_test = findViewById(R.id.text_test);
+
+        Intent intent=new Intent(this.getIntent()); // 로그인부터시작 안하면 터짐 act1_mainpage도.
+        id=intent.getStringExtra("id");
+        Log.d("DEBUG",id);
 
     }
 
@@ -65,6 +77,10 @@ public class MainPage extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
+
+
+
 }

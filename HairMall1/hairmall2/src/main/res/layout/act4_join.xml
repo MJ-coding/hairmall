@@ -14,37 +14,41 @@ android:gravity="center"
     android:src="@drawable/icon" />
 
 <EditText
+    android:id="@+id/edit_join_email"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:inputType="textEmailAddress"
     android:ems="10"
-    android:hint="이메일주소를 입력하세요"
-    android:id="@+id/etEmail" />
+    android:hint="이메일주소를 입력하세요" />
 <EditText
+    android:id="@+id/edit_join_name"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:ems="10"
     android:hint="이름을 입력하세요"/>
 
 <EditText
+    android:id="@+id/edit_join_phone"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:inputType="number"
     android:ems="10"
-    android:hint="휴대폰번호를 입력하세요"/>
+    android:hint="휴대폰번호를 -부호 없이 연속해서 입력하세요"/>
+
 <EditText
+    android:id="@+id/edit_join_id"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="text"
+    android:ems="10"
+    android:hint="아이디를 입력하세요" />
+<EditText
+    android:id="@+id/edit_join_pw"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:inputType="textPassword"
     android:ems="10"
-    android:hint="아이디를 입력하세요"
-    android:id="@+id/etPassword" />
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:inputType="textPassword"
-    android:ems="10"
-    android:hint="비밀번호를 입력하세요"
-    android:id="@+id/etPasswordConfirm" />
+    android:hint="비밀번호를 입력하세요" />
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -57,7 +61,7 @@ android:gravity="center"
         android:layout_weight="1"
         android:background="#FF94B8"
         android:text="가입"
-        android:id="@+id/btnDone" />
+        android:id="@+id/btn_join_join" />
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -65,7 +69,7 @@ android:gravity="center"
         android:layout_weight="1"
         android:background="#FF94B8"
         android:text="취소"
-        android:id="@+id/btnCancel" />
+        android:id="@+id/btn_join_cancel" />
 </LinearLayout>
 
 <TextView
