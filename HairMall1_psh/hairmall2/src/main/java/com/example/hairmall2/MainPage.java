@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,6 +17,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.hairmall2.ui.act11_stylesearchingm;
+import com.example.hairmall2.ui.act3_login;
+import com.example.hairmall2.ui.act5_mypage;
+import com.example.hairmall2.ui.act8_shopdetail;
+import com.example.hairmall2.ui.slideshow.act11_stylesearching;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -34,6 +40,33 @@ public class MainPage extends AppCompatActivity {
             return id;
         }
     */
+
+    public void goto_login(View v){
+        Intent Act = new Intent (getApplicationContext(), act3_login.class);
+        startActivity(Act);
+    }
+
+    public void goto_mypage(View v){
+        Intent Act = new Intent(getApplicationContext(), act5_mypage.class);
+        Act.putExtra("id", id);
+        startActivity(Act);
+    }
+
+    public void goto_shopdetail(View v){
+        Intent Act = new Intent(getApplicationContext(), act8_shopdetail.class);
+        startActivity(Act);
+    }
+
+    public void goto_stylesearchingm(View v){
+        Intent Act = new Intent(getApplicationContext(), act11_stylesearchingm.class);
+        startActivity(Act);
+    }
+
+    public void goto_stylesearchingw(View v){
+        Intent Act = new Intent(getApplicationContext(), act11_stylesearching.class);
+        startActivity(Act);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +96,7 @@ public class MainPage extends AppCompatActivity {
 
         Intent intent=new Intent(this.getIntent()); // 로그인부터시작 안하면 터짐 act1_mainpage도.
         id=intent.getStringExtra("id");
-        Log.d("DEBUG",id);
+        Log.d("DEBUG_mainpage",id);
 
     }
 

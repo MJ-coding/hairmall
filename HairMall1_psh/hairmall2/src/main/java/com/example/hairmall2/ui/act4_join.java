@@ -43,6 +43,10 @@ public class act4_join extends AppCompatActivity {
     private String memo;
     private ArrayList<String>ArrayStar = new ArrayList<>();
 
+    private String memo_date;
+    private String memo_shop;
+    private String memo_time;
+
     static ArrayList<String> arrayIndex = new ArrayList<>();
     static ArrayList<String> arrayData = new ArrayList<>();
 
@@ -69,7 +73,7 @@ public class act4_join extends AppCompatActivity {
         Map<String, Object> childUpdates = new HashMap<>();
         Map<String, Object> values = null;
         if(add){
-            user1 user = new user1(email, name, phone, id, pw, memo, ArrayStar);
+            user1 user = new user1(email, name, phone, id, pw, memo, ArrayStar, memo_date, memo_shop, memo_time);
             values = user.toMap();
         }
         childUpdates.put("/hairmall/users/"+id, values);
@@ -127,7 +131,7 @@ public class act4_join extends AppCompatActivity {
         Intent intent = new Intent(act4_join.this, com.example.hairmall2.ui.home.act1_mainpage.class);
         intent.putExtra("id", id);
 
-        intent = new Intent(act4_join.this, com.example.hairmall2.ui.act5_mypage.class);
+        intent = new Intent(act4_join.this, com.example.hairmall2.MainPage.class);
         intent.putExtra("id", id);
     }
 

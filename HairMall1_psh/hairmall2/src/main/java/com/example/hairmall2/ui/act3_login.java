@@ -3,6 +3,7 @@ package com.example.hairmall2.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -102,7 +103,7 @@ public class act3_login extends AppCompatActivity {
                         intent.putExtra("id", id);
                         startActivity(intent);
                     }else{
-                        Toast.makeText(act3_login.this, "비밀번호가 일치하지 않습니다.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(act3_login.this, "비밀번호가 일치하지 않습니다.",Toast.LENGTH_SHORT).show();
                         setEditBlank();
                     }
 
@@ -155,8 +156,12 @@ public class act3_login extends AppCompatActivity {
         Intent intent = new Intent(act3_login.this, com.example.hairmall2.ui.home.act1_mainpage.class);
         intent.putExtra("id", id);
 
-        intent = new Intent(act3_login.this, com.example.hairmall2.ui.act5_mypage.class);
+
+        intent = new Intent(act3_login.this, com.example.hairmall2.MainPage.class);
         intent.putExtra("id", id);
+
+        //intent = new Intent(act3_login.this, com.example.hairmall2.ui.act5_mypage.class); //에러남
+        //intent.putExtra("id", id);
     }
 
     @Override

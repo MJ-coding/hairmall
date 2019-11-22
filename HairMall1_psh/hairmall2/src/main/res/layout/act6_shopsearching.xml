@@ -70,7 +70,8 @@
                     android:scaleType="centerCrop"
                     android:cropToPadding="true"
                     android:padding="5dp"
-                    android:background="@drawable/border"/>
+                    android:background="@drawable/border"
+                    android:onClick="goto_shopdetail"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

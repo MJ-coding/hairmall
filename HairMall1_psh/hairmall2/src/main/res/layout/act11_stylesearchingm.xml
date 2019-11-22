@@ -40,7 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FF94B8"
-            android:text="man"/>
+            android:text="man"
+            android:onClick="goto_stylesearchingm"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +53,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FF94B8"
-            android:text="woman"/>
+            android:text="woman"
+            android:onClick="goto_stylesearchingw"/>
 
 
     </LinearLayout>

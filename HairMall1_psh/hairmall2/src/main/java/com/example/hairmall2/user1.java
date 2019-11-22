@@ -17,11 +17,15 @@ public class user1 {
     public String memo;
     public ArrayList<String> arrayStar = new ArrayList<>();
 
+    public String memo_date;
+    public String memo_shop;
+    public String memo_time;
+
     public user1 (){
 
     }
 
-    public user1 (String email, String name, String phone, String id, String pw, String memo, ArrayList<String> arrayStar){
+    public user1 (String email, String name, String phone, String id, String pw, String memo, ArrayList<String> arrayStar, String memo_date, String memo_shop, String memo_time){
         this.email = email;
         this.name = name;
         this.phone = phone;
@@ -29,6 +33,37 @@ public class user1 {
         this.pw = pw;
         this.memo = memo;
         this.arrayStar = arrayStar;
+
+        this.memo_date = memo_date;
+        this.memo_shop = memo_shop;
+        this.memo_time = memo_time;
+    }
+
+    @Exclude
+    public String getMemo_date() {
+        return memo_date;
+    }
+
+    public void setMemo_date(String memo_date) {
+        this.memo_date = memo_date;
+    }
+
+    @Exclude
+    public String getMemo_shop() {
+        return memo_shop;
+    }
+
+    public void setMemo_shop(String memo_shop) {
+        this.memo_shop = memo_shop;
+    }
+
+    @Exclude
+    public String getMemo_time() {
+        return memo_time;
+    }
+
+    public void setMemo_time(String memo_time) {
+        this.memo_time = memo_time;
     }
 
     @Exclude
@@ -106,9 +141,21 @@ public class user1 {
     }
 
     @Exclude
-    public Map<String, Object> toMemo() {
+    public Map<String, Object> setUser() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("memo", memo);
+        result.put("email", email);
+        result.put("name", name);
+        result.put("phone", phone);
+        result.put("pw", pw);
+        return result;
+    }
+
+    @Exclude
+    public Map<String, Object> setTime() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("memo_date", memo_date);
+        result.put("memo_shop", memo_shop);
+        result.put("memo_time", memo_time);
         return result;
     }
 

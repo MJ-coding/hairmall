@@ -195,17 +195,23 @@
                     android:textSize="20dp"/>
             </TableRow>
             <TableRow>
-                <TextView android:text="2019-10-15"
+                <EditText
+                    android:id="@+id/edit_mypage_date"
+                    android:text="date"
                     android:background="@drawable/border_mypage"
                     android:layout_weight="3"
                     android:gravity="center"
                     android:textSize="20dp"/>
-                <TextView android:text="지노헤어"
+                <EditText
+                    android:id="@+id/edit_mypage_shop"
+                    android:text="shop"
                     android:background="@drawable/border_mypage"
                     android:layout_weight="4"
                     android:gravity="center"
                     android:textSize="20dp"/>
-                <TextView android:text="16:30"
+                <EditText
+                    android:id="@+id/edit_mypage_time"
+                    android:text="time"
                     android:background="@drawable/border_mypage"
                     android:layout_weight="2"
                     android:gravity="center"
@@ -231,6 +237,7 @@
             android:layout_height="match_parent"
             android:layout_weight="7" />
         <Button
+            android:id="@+id/btn_mypage_setTime"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
@@ -280,8 +287,9 @@
             android:background="#4F59"
             android:gravity="center"
             android:textSize="20dp"/>
-        <TextView
-            android:text="이한목"
+        <EditText
+            android:id="@+id/edit_mypage_name"
+            android:text="name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
@@ -311,8 +319,9 @@
             android:background="#495F"
             android:gravity="center"
             android:textSize="20dp"/>
-        <TextView
-            android:text="010-0100-0010"
+        <EditText
+            android:id="@+id/edit_mypage_phone"
+            android:text="phone"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
@@ -343,8 +352,9 @@
             android:background="#4F59"
             android:gravity="center"
             android:textSize="20dp"/>
-        <TextView
-            android:text="dmammmm@naver.com"
+        <EditText
+            android:id="@+id/edit_mypage_email"
+            android:text="email@email.com"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
@@ -375,8 +385,10 @@
                 android:background="#495F"
                 android:gravity="center"
                 android:textSize="19dp"/>
-            <TextView
-                android:text="*******"
+            <EditText
+                android:id="@+id/edit_mypage_pw"
+                android:inputType="textPassword"
+                android:text="pw"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
@@ -395,6 +407,7 @@
     android:layout_height="0dp"
     android:layout_weight="1.4"
     android:orientation="horizontal"
+    android:gravity="right"
     android:weightSum="11">
 
     <TextView
@@ -403,6 +416,7 @@
         android:layout_weight="1"/>
 
     <Button
+        android:id="@+id/btn_mypage_setUser"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="4"
@@ -413,13 +427,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="4"
-        android:text="저  장 "
-        android:background="#FF94B8"
-        android:textSize="20dp"/>
+
 </LinearLayout>
 
 
