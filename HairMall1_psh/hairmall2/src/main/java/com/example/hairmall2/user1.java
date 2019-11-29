@@ -21,11 +21,15 @@ public class user1 {
     public String memo_shop;
     public String memo_time;
 
+    public String class_name = "users";
+
     public user1 (){
 
     }
 
-    public user1 (String email, String name, String phone, String id, String pw, String memo, ArrayList<String> arrayStar, String memo_date, String memo_shop, String memo_time){
+    public user1 (String email, String name, String phone, String id, String pw, String memo, ArrayList<String> arrayStar,
+                  String memo_date, String memo_shop, String memo_time,
+                  String class_name){
         this.email = email;
         this.name = name;
         this.phone = phone;
@@ -37,6 +41,8 @@ public class user1 {
         this.memo_date = memo_date;
         this.memo_shop = memo_shop;
         this.memo_time = memo_time;
+
+        this.class_name = class_name;
     }
 
     @Exclude
@@ -130,6 +136,15 @@ public class user1 {
     }
 
     @Exclude
+    public String getClass_name() {
+        return class_name;
+    }
+
+    public void setClass_name(String class_name) {
+        this.class_name = class_name;
+    }
+
+    @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("email", email);
@@ -137,6 +152,7 @@ public class user1 {
         result.put("phone", phone);
         result.put("id", id);
         result.put("pw", pw);
+        result.put("class_name", class_name);
         return result;
     }
 

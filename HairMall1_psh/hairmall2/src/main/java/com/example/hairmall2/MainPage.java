@@ -35,6 +35,9 @@ public class MainPage extends AppCompatActivity {
     private String text;
 
     private String id;
+
+    private String class_name;
+
     /*
         public String getId() {
             return id;
@@ -49,6 +52,7 @@ public class MainPage extends AppCompatActivity {
     public void goto_mypage(View v){
         Intent Act = new Intent(getApplicationContext(), act5_mypage.class);
         Act.putExtra("id", id);
+        Act.putExtra("class_name", class_name);
         startActivity(Act);
     }
 
@@ -96,7 +100,9 @@ public class MainPage extends AppCompatActivity {
 
         Intent intent=new Intent(this.getIntent()); // 로그인부터시작 안하면 터짐 act1_mainpage도.
         id=intent.getStringExtra("id");
+        class_name = intent.getStringExtra("class_name");
         Log.d("DEBUG_mainpage",id);
+        Log.d("DEBUG_mainpage",class_name);
 
     }
 

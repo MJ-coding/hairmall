@@ -26,6 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class act1_mainpage extends Fragment {
 
     private act6_mainpageviewmodel homeViewModel;
@@ -37,6 +39,30 @@ public class act1_mainpage extends Fragment {
 
 
     private String id;
+
+    private String class_name;
+
+    public String shop_main_url;
+
+    public String shop_imag_url1;
+    public String shop_imag_url2;
+    public String shop_imag_url3;
+
+    public String shop_menu_url1;
+    public String shop_menu_url2;
+    public String shop_menu_url3;
+    public String shop_menu_url4;
+
+    public String shop_review_url1;
+    public String shop_review_url2;
+    public String shop_review_url3;
+    public String shop_review_url4;
+
+    public String reputation;
+
+    public ArrayList<String> arrayReserve = new ArrayList<>();
+    public ArrayList<String> arrayReview = new ArrayList<>();
+
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fir-test-7d2fa.firebaseio.com");
     DatabaseReference childRef = mRootRef;
@@ -63,7 +89,9 @@ public class act1_mainpage extends Fragment {
         text_test = root.findViewById(R.id.text_test);
 
         id=getActivity().getIntent().getExtras().getString("id"); // 로그인부터 시작 안하면 intent에러
-        Log.d("DEBUG2",id);
+        class_name=getActivity().getIntent().getExtras().getString("class_name");
+        Log.d("DEBUG2_act1_mainpage",id);
+        Log.d("DEBUG2_act1_mainpage",class_name);
 
         // 메인 뷰 설정
         final Context context = getActivity();

@@ -13,6 +13,26 @@ android:gravity="center"
     android:layout_height="wrap_content"
     android:src="@drawable/icon" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/check_join_users"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="고객회원"/>
+
+        <CheckBox
+            android:id="@+id/check_join_shops"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기업회원"/>
+
+    </LinearLayout>
+
 <EditText
     android:id="@+id/edit_join_email"
     android:layout_width="match_parent"
