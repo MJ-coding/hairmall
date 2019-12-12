@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,10 +33,19 @@ public class act10_review extends AppCompatActivity {
             public void onClick(View view) {
                 String shop_name = getIntent().getStringExtra("shop_name");
 
+                //현재 시간 넣기
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+                String date = sdf.format(new Date());
+
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
 
                 Map<String, Object> data_info = new HashMap<>();
+                //*****추가구현할 부분***가게 이름 넣은듯이 다른부분도 넣기
                 data_info.put("shop_name", shop_name);
+
+                //DB에 현재 시간 넣기
+                data_info.put("date_day", date);
+
 
 
                 // Add a new document with a generated ID

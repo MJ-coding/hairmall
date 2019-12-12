@@ -20,11 +20,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hairmall2.KnowIndexOnClickListener;
 import com.example.hairmall2.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -104,6 +110,27 @@ public class act1_mainpage extends Fragment {
         reviewImage[0] = root.findViewById(R.id.recent_review1);
         reviewImage[1] = root.findViewById(R.id.recent_review2);
         reviewImage[2] = root.findViewById(R.id.recent_review3);
+
+        //최신 날짜기준으로 review 3개 가져오기
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("review").orderBy("date_day", Query.Direction.DESCENDING).limit(3).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            //***추가구현부분****task성공시 DB에 shop_name가져와서 작업하기
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("result", document.getId() + " => " + document.getData().get("shop_name"));
+                            }
+                        } else {
+                            //task실패시 log남기
+
+                            Log.w("result", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
 
         final String[] testText = new String[3];
         testText[0]="1번 리뷰";
