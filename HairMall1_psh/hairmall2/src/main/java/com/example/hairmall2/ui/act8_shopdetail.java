@@ -22,9 +22,12 @@ public class act8_shopdetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),act10_review.class);
-
+                //act6_shopsearching에서 설정해준 이름data 가져오기
                 String shop_name = getIntent().getStringExtra("shop_name");
+                String gpa =getIntent().getStringExtra("gpa");
+                //다시 다음 activity로 넘기기위해 intent data입력하기
                 intent.putExtra("shop_name",shop_name);
+                intent.putExtra("gpa",gpa);
                 startActivity(intent);
 
             }

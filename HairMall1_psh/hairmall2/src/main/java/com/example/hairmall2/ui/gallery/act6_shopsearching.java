@@ -35,14 +35,38 @@ public class act6_shopsearching extends Fragment {
         });
 
         //여기서 부터 해당 미용실actvity로 이동구현
-        ImageView imageView = root.findViewById(R.id.shop_image1);
+        ImageView fir_imageView = root.findViewById(R.id.shop_image1);
+        ImageView sec_imageView = root.findViewById(R.id.shop_image2);
+        ImageView thr_imageView = root.findViewById(R.id.shop_image3);
 
-        imageView.setOnClickListener(new View.OnClickListener() {
+        fir_imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //intent(지금 data,넘어갈 activity)
                 Intent intent = new Intent(getContext(), act8_shopdetail.class);
-                intent.putExtra("shop_name","주노헤어");
+                intent.putExtra("shop_name","지노헤어");
+                intent.putExtra("gpa","3.4");
+                startActivity(intent);
+            }
+        });
+        sec_imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), act8_shopdetail.class);
+               //인텐트에 data입력해주기
+                intent.putExtra("shop_name","리안헤어");
+                intent.putExtra("gpa","4.3");
+                startActivity(intent);
+            }
+        });
+        thr_imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), act8_shopdetail.class);
+                intent.putExtra("shop_name","이철 헤어커커");
+                intent.putExtra("gpa","3.9");
                 startActivity(intent);
             }
         });
