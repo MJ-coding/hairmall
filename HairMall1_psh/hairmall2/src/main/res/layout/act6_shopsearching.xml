@@ -62,29 +62,32 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"/>
+
                 <ImageView
+                    android:id="@+id/shop_image1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
-                    android:src="@drawable/xino"
-                    android:scaleType="centerCrop"
+                    android:background="@drawable/border"
                     android:cropToPadding="true"
                     android:padding="5dp"
-                    android:background="@drawable/border"
-                    android:onClick="goto_shopdetail"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/xino" />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.4"/>
+
                 <ImageView
+                    android:id="@+id/shop_image2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
-                    android:src="@drawable/riahn"
-                    android:scaleType="centerCrop"
+                    android:background="@drawable/border"
                     android:cropToPadding="true"
                     android:padding="5dp"
-                    android:background="@drawable/border"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/riahn" />
             </LinearLayout>
 
 
@@ -176,28 +179,32 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"/>
+
                 <ImageView
+                    android:id="@+id/shop_image3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
-                    android:src="@drawable/leechul"
-                    android:scaleType="centerCrop"
+                    android:background="@drawable/border"
                     android:cropToPadding="true"
                     android:padding="5dp"
-                    android:background="@drawable/border"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/leechul" />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.4"/>
+
                 <ImageView
+                    android:id="@+id/image_shop4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
-                    android:src="@drawable/park"
-                    android:scaleType="centerCrop"
+                    android:background="@drawable/border"
                     android:cropToPadding="true"
                     android:padding="5dp"
-                    android:background="@drawable/border"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/park" />
             </LinearLayout>
 
 

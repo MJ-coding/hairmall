@@ -20,24 +20,25 @@
             android:src="@drawable/profile_s" />
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textStyle="bold"
-            android:textSize="10pt"
+            android:text="고동환"
             android:textColor="#000"
-            android:text="고동환"/>
+            android:textSize="10pt"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
 
     <EditText
+        android:id="@+id/write_review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="none"
         android:hint="리뷰를 달아주세요:)"
-        android:privateImeOptions="defaultInputmode=korean"
-        />
+        android:inputType="none"
+        android:privateImeOptions="defaultInputmode=korean" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -144,13 +145,14 @@
             android:text="  "/>
 
         <Button
+            android:id="@+id/save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="10pt"
-            android:textColor="#000"
             android:background="#FF94B8"
-            android:text="저장하기"/>
+            android:text="저장하기"
+            android:textColor="#000"
+            android:textSize="10pt"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
