@@ -336,7 +336,7 @@ public class act5_mypage extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(act5_mypage.this, act8_shopdetaill_creator.class);
-                    //intent.putExtra("id", id);
+                    intent.putExtra("id", id);
                     startActivity(intent);
                 }
 
