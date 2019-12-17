@@ -36,6 +36,8 @@ public class act5_mypage extends AppCompatActivity {
     private EditText edit_mypage_pw;
     private Button btn_mypage_setUser;
 
+    private Button btn_mypage_creator;
+
     private String email;
     private String name;
     private String phone;
@@ -97,6 +99,13 @@ public class act5_mypage extends AppCompatActivity {
         edit_mypage_email = findViewById(R.id.edit_mypage_email);
         edit_mypage_pw = findViewById(R.id.edit_mypage_pw);
         btn_mypage_setUser = findViewById(R.id.btn_mypage_setUser);
+
+        btn_mypage_creator = findViewById(R.id.btn_mypage_creator);
+        btn_mypage_creator.setVisibility(View.GONE);
+
+        if (class_name.equals("shops")){
+            btn_mypage_creator.setVisibility(View.VISIBLE);
+        }
     }
 
     public final void user_setTime(boolean add){
@@ -190,7 +199,7 @@ public class act5_mypage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    shop shop = dataSnapshot.getValue(shop.class);
+                    shop shop = dataSnapshot.getValue(com.example.hairmall2.shop.class);
 
                     edit_mypage_date.setText(shop.memo_date);
                     edit_mypage_shop.setText(shop.memo_shop);
@@ -319,6 +328,17 @@ public class act5_mypage extends AppCompatActivity {
 
                 }
 
+
+            });
+
+            btn_mypage_creator.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(act5_mypage.this, act8_shopdetaill_creator.class);
+                    //intent.putExtra("id", id);
+                    startActivity(intent);
+                }
 
             });
 

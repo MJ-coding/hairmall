@@ -410,6 +410,15 @@
     android:gravity="right"
     android:weightSum="11">
 
+    <Button
+        android:id="@+id/btn_mypage_creator"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:text="가게 작성"
+        android:background="#FF94B8"
+        android:textSize="20dp"/>
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"

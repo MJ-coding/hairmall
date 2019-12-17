@@ -94,6 +94,10 @@ public class act1_mainpage extends Fragment {
         btn_test = root.findViewById(R.id.btn_test);
         text_test = root.findViewById(R.id.text_test);
 
+        edit_test.setVisibility(View.GONE);
+        btn_test.setVisibility(View.GONE);
+        text_test.setVisibility(View.GONE);
+
         id=getActivity().getIntent().getExtras().getString("id"); // 로그인부터 시작 안하면 intent에러
         class_name=getActivity().getIntent().getExtras().getString("class_name");
         Log.d("DEBUG2_act1_mainpage",id);
@@ -157,6 +161,8 @@ public class act1_mainpage extends Fragment {
                 }
             });
         }
+
+
 
         return root;
     }
