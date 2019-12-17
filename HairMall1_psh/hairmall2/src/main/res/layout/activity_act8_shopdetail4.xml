@@ -11,7 +11,7 @@ android:orientation="vertical" >
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical|center_horizontal"
     android:gravity="center_horizontal|center_vertical"
-    android:text="지노헤어 숭실대 1호점"
+    android:text="박승철 헤어"
     android:textSize="40dp"
     android:layout_weight="2"/>
 <LinearLayout
@@ -25,7 +25,7 @@ android:orientation="vertical" >
         android:adjustViewBounds="true"
         android:maxWidth="135dp"
         android:maxHeight="300dp"
-        android:src="@drawable/xino_main1"
+        android:src="@drawable/pschair_main1"
         android:layout_weight="2"/>
 
     <ImageView
@@ -35,7 +35,7 @@ android:orientation="vertical" >
         android:adjustViewBounds="true"
         android:maxWidth="135dp"
         android:maxHeight="135dp"
-        android:src="@drawable/xino_main2" />
+        android:src="@drawable/pschair_main2" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -43,7 +43,7 @@ android:orientation="vertical" >
         android:adjustViewBounds="true"
         android:maxWidth="135dp"
         android:maxHeight="135dp"
-        android:src="@drawable/xino_main3"
+        android:src="@drawable/pschair_main3"
         android:layout_weight="2"/>
 </LinearLayout>
 <LinearLayout
@@ -106,7 +106,7 @@ android:orientation="vertical" >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/xino_menu1"
+        android:src="@drawable/pschair_menu1"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:adjustViewBounds="true"
@@ -114,7 +114,7 @@ android:orientation="vertical" >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/xino_menu2"
+        android:src="@drawable/pschair_menu2"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:adjustViewBounds="true"
@@ -122,7 +122,7 @@ android:orientation="vertical" >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/xino_menu3"
+        android:src="@drawable/pschair_menu3"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:adjustViewBounds="true"
@@ -130,7 +130,7 @@ android:orientation="vertical" >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/xino_menu4"
+        android:src="@drawable/pschair_menu4"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:adjustViewBounds="true"
@@ -152,7 +152,7 @@ android:orientation="vertical" >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/xino_review1"
+        android:src="@drawable/pschair_review1"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:adjustViewBounds="true"
@@ -160,7 +160,7 @@ android:orientation="vertical" >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/xino_review2"
+        android:src="@drawable/pschair_review2"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:adjustViewBounds="true"
@@ -168,7 +168,7 @@ android:orientation="vertical" >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/xino_review3"
+        android:src="@drawable/pschair_review3"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:adjustViewBounds="true"
@@ -176,7 +176,7 @@ android:orientation="vertical" >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/xino_review4"
+        android:src="@drawable/pschair_review4"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:adjustViewBounds="true"
