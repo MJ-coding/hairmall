@@ -45,6 +45,8 @@ public class act3_login extends AppCompatActivity {
     private String realpwShop;
     private boolean IsExistpw;
 
+    private String id_info;
+
     private String class_name = "users";
 
     static ArrayList<String> arrayIndex = new ArrayList<>();
@@ -128,9 +130,10 @@ public class act3_login extends AppCompatActivity {
 
         id = edit_login_id.getText().toString();
         pw = edit_login_pw.getText().toString();
+        id_info = id+"_info";
 
         Log.d("DEBUG","DEBUG1 : ");
-        childRef = mRootRef.child("hairmall").child("users").child(id).child("pw");
+        childRef = mRootRef.child("hairmall").child("users").child(id).child(id_info).child("pw");
         Log.d("DEBUG","DEBUG2 : ");
         childRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -167,9 +170,10 @@ public class act3_login extends AppCompatActivity {
     public void IsExistPwShop(){
         id = edit_login_id.getText().toString();
         pw = edit_login_pw.getText().toString();
+        id_info = id+"_info";
 
         Log.d("DEBUG","DEBUG1 : ");
-        childRef = mRootRef.child("hairmall").child("shops").child(id).child("pw");
+        childRef = mRootRef.child("hairmall").child("shops").child(id).child(id_info).child("pw");
         Log.d("DEBUG","DEBUG2 : ");
         Log.d("shopsDEBUG","DEBUG0 : " + realpwShop);
         childRef.addValueEventListener(new ValueEventListener() {
@@ -221,7 +225,7 @@ public class act3_login extends AppCompatActivity {
                     arrayIndex.clear();
                     for(DataSnapshot ds : dataSnapshot.getChildren()){
                         String key = ds.getKey();
-                        user1 user = ds.getValue(user1.class);
+                        user1 user = ds.child(key+"_info").getValue(user1.class);
                         String[] info = {user.getEmail(), user.getName(), user.getPhone(), user.getId(), user.getPw(),user.getMemo()};//ArrayStar 제외
                         String Result = info[0] + " " + info[1] + " " + info[2] + " " + info[3] + " " + info[4] + " " + info[5];
                         arrayIndex.add(key);
@@ -252,7 +256,8 @@ public class act3_login extends AppCompatActivity {
                     arrayIndexShops.clear();
                     for(DataSnapshot ds : dataSnapshot.getChildren()){
                         String key = ds.getKey();
-                        shop shop = ds.getValue(shop.class);
+                        id_info = key+"_info";
+                        shop shop = ds.child(id_info).getValue(shop.class);
                         String[] info = {shop.getEmail(), shop.getName(), shop.getPhone(), shop.getId(), shop.getPw(),shop.getMemo()};//ArrayStar 제외
                         String Result = info[0] + " " + info[1] + " " + info[2] + " " + info[3] + " " + info[4] + " " + info[5];
                         arrayIndexShops.add(key);

@@ -44,6 +44,7 @@ public class act5_mypage extends AppCompatActivity {
     private String id;
     private String pw;
     private String memo;
+    private String id_info;
 
     private String class_name;
 
@@ -121,7 +122,7 @@ public class act5_mypage extends AppCompatActivity {
         values.put("phone", phone);
         values.put("pw", pw);
         values.put("class_name", class_name );
-        childUpdates.put("/hairmall/users/"+id, values);
+        childUpdates.put("/hairmall/users/"+id+"/"+id+"_info", values);
         mRootRef.updateChildren(childUpdates);
 
     }
@@ -138,7 +139,7 @@ public class act5_mypage extends AppCompatActivity {
         values.put("memo_shop", memo_shop);
         values.put("memo_time", memo_time);
         values.put("class_name", class_name );
-        childUpdates.put("/hairmall/users/"+id, values);
+        childUpdates.put("/hairmall/users/"+id+"/"+id+"_info", values);
         mRootRef.updateChildren(childUpdates);
 
     }
@@ -157,12 +158,13 @@ public class act5_mypage extends AppCompatActivity {
                     arrayReserve, arrayReview);
             values = shop.toMap();
         }
-        childUpdates.put("/hairmall/shops/"+id, values);
+        childUpdates.put("/hairmall/shops/"+id+"/"+id+"_info", values);
         mRootRef.updateChildren(childUpdates);
     }
 
     public void getFirebaseDatabase(){
-        childRef = mRootRef.child("hairmall").child("users").child(id);
+        id_info = id+"_info";
+        childRef = mRootRef.child("hairmall").child("users").child(id).child(id_info);
         childRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -194,7 +196,8 @@ public class act5_mypage extends AppCompatActivity {
     }
 
     public void getFirebaseDatabaseShop(){
-        childRef = mRootRef.child("hairmall").child("shops").child(id);
+        id_info = id+"_info";
+        childRef = mRootRef.child("hairmall").child("shops").child(id).child(id_info);
         childRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

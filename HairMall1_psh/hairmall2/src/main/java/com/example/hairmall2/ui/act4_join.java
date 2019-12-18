@@ -46,6 +46,7 @@ public class act4_join extends AppCompatActivity {
     private String id;
     private String pw;
     private String memo;
+    private String id_info;
 
     private String class_name = "users";
 
@@ -115,7 +116,7 @@ public class act4_join extends AppCompatActivity {
             user1 user = new user1(email, name, phone, id, pw, memo, ArrayStar, memo_date, memo_shop, memo_time, class_name);
             values = user.toMap();
         }
-        childUpdates.put("/hairmall/users/"+id, values);
+        childUpdates.put("/hairmall/users/"+id+"/"+id+"_info", values);
         mRootRef.updateChildren(childUpdates);
     }
 
@@ -133,7 +134,7 @@ public class act4_join extends AppCompatActivity {
                     arrayReserve, arrayReview);
             values = shop.toMap();
         }
-        childUpdates.put("/hairmall/shops/"+id, values);
+        childUpdates.put("/hairmall/shops/"+id+"/"+id+"_info", values);
         mRootRef.updateChildren(childUpdates);
     }
 
@@ -169,7 +170,7 @@ public class act4_join extends AppCompatActivity {
                     arrayIndex.clear();
                     for(DataSnapshot ds : dataSnapshot.getChildren()){
                         String key = ds.getKey();
-                        user1 user = ds.getValue(user1.class);
+                        user1 user = ds.child(key+"_info").getValue(user1.class);
                         String[] info = {user.getEmail(), user.getName(), user.getPhone(), user.getId(), user.getPw(),user.getMemo()};//ArrayStar 제외
                         String Result = info[0] + " " + info[1] + " " + info[2] + " " + info[3] + " " + info[4] + " " + info[5];
                         arrayIndex.add(key);
@@ -199,7 +200,7 @@ public class act4_join extends AppCompatActivity {
                     arrayIndexShops.clear();
                     for(DataSnapshot ds : dataSnapshot.getChildren()){
                         String key = ds.getKey();
-                        shop shop = ds.getValue(shop.class);
+                        shop shop = ds.child(key+"_info").getValue(shop.class);
                         String[] info = {shop.getEmail(), shop.getName(), shop.getPhone(), shop.getId(), shop.getPw(), shop.getMemo()};//ArrayStar 제외
                         String Result = info[0] + " " + info[1] + " " + info[2] + " " + info[3] + " " + info[4] + " " + info[5];
                         arrayIndexShops.add(key);
