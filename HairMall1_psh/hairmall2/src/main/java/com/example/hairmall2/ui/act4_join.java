@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.hairmall2.R;
@@ -104,7 +105,6 @@ public class act4_join extends AppCompatActivity {
 
         check_join_users = findViewById(R.id.check_join_users);
         check_join_shops = findViewById(R.id.check_join_shops);
-
 
 
     }

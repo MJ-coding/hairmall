@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.hairmall2.R;
@@ -26,6 +28,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class act3_login extends AppCompatActivity {
+
+    //로그인 이미지 등록위한 변
+    private final int PICK_GALLERY = 1;
+    private ImageView login_imageview;
 
     private EditText edit_login_id;
     private EditText edit_login_pw;
@@ -98,7 +104,32 @@ public class act3_login extends AppCompatActivity {
         check_login_shops = findViewById(R.id.check_login_shops);
 
          Log.d("login_DEBUG01","Shop : 01" );
-    }
+
+        //로그인 이미지 설정
+        login_imageview =(ImageView)findViewById(R.id.login_image);
+        login_imageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        "image/*");
+                startActivityForResult(intent,PICK_GALLERY);
+            }
+        });}
+             @Override
+             protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+                super.onActivityResult(requestCode, resultCode, data);
+
+                 if (requestCode == PICK_GALLERY && resultCode == RESULT_OK &&
+                         data != null && data.getData() != null) {
+                     login_imageview.setImageResource(0);
+                     Uri selectedImageUri = data.getData();
+                     login_imageview.setImageURI(selectedImageUri);
+
+            }
+
+        }
+
 
     public boolean IsExistId(){
         boolean IsExist = arrayIndex.contains(id);

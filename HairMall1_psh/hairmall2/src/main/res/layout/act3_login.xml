@@ -6,8 +6,9 @@
     android:orientation="vertical"> # padding은 center로 바꾸기
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/login_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/login_icon_small" />
 
