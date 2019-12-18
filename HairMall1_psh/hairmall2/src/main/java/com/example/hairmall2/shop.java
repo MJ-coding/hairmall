@@ -23,6 +23,7 @@ public class shop {
 
     public String shop_main_url;
 
+
     public String shop_imag_url1;
     public String shop_imag_url2;
     public String shop_imag_url3;
@@ -130,11 +131,11 @@ public class shop {
     public Map<String, Object> toMapUri() {
         HashMap<String, Object> result = new HashMap<>();
 
-        result.put("shop_main_url", shop_main_url);
-
         result.put("shop_imag_url1", shop_imag_url1);
         result.put("shop_imag_url2", shop_imag_url2);
         result.put("shop_imag_url3", shop_imag_url3);
+
+        result.put("shop_main_url", shop_main_url);
 
         result.put("shop_menu_url1", shop_menu_url1);
         result.put("shop_menu_url2", shop_menu_url2);

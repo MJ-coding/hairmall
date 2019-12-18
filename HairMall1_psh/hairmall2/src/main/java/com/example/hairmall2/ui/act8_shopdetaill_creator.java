@@ -98,6 +98,8 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
 
     public String shop_main_url;
 
+    public String shop_main_url2;
+
     public String shop_imag_url1;
     public String shop_imag_url2;
     public String shop_imag_url3;
@@ -113,6 +115,8 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
     public String shop_review_url4;
 
     public String reputation;
+
+    public String glideuri;
 
     public ArrayList<String> arrayReserve = new ArrayList<>();
     public ArrayList<String> arrayReview = new ArrayList<>();
@@ -160,11 +164,11 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
         text_creator_name.setText(id);
 
         Log.d("shopdetail_DEBUG01", "00");
-        includesForUploadFiles(imag_creator_main3,id,"shop_test");
+        //includesForUploadFiles(imag_creator_main3,id,"shop_test");
 
     }
 
-    public void includesForUploadFiles(ImageView v, String shop_name, String jpg_name) {
+    public void includesForUploadFiles(ImageView v, String shop_name, final String jpg_name) {
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         StorageReference storageRef = storage.getReference();
@@ -212,8 +216,48 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     Uri downloadUri = task.getResult(); //예측불가
                     String downloadUristring = downloadUri.toString();
                     Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(downloadUristring).into(imag_creator_glidetest);
-                    Log.d("ABCD", downloadUristring);
                     text_creator_glideuri.setText(downloadUristring);
+
+                    glideuri = downloadUristring;
+                    if (jpg_name.equals("shop_imag")){
+                        shop_main_url = downloadUristring;
+                        shop_main_url2 = shop_main_url;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("main1_imag")){
+                        shop_imag_url1 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("main2_imag")){
+                        shop_imag_url2 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("main3_imag")){
+                        shop_imag_url3 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("menu1_imag")){
+                        shop_menu_url1 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("menu2_imag")){
+                        shop_menu_url2 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("menu3_imag")){
+                        shop_menu_url3 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("menu4_imag")){
+                        shop_menu_url4 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("review1_imag")){
+                        shop_review_url1 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("review2_imag")){
+                        shop_review_url2 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("review3_imag")){
+                        shop_review_url3 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    } else if (jpg_name.equals("review4_imag")){
+                        shop_review_url4 = downloadUristring;
+                        Log.d("ABCD", downloadUristring);
+                    }
+                    shop_main_url = shop_main_url2;
                 } else {
                     //Handle failures
                 }
@@ -249,11 +293,11 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 if(dataSnapshot.exists()){
                     shop shop = dataSnapshot.getValue(com.example.hairmall2.shop.class);
 
-                    shop_main_url = shop.shop_main_url;
-
                     shop_imag_url1 = shop.shop_imag_url1;
                     shop_imag_url2 = shop.shop_imag_url2;
                     shop_imag_url3 = shop.shop_imag_url3;
+
+                    shop_main_url = shop.shop_main_url;
 
                     shop_menu_url1 = shop.shop_menu_url1;
                     shop_menu_url2 = shop.shop_menu_url2;
@@ -264,6 +308,20 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     shop_review_url2 = shop.shop_review_url2;
                     shop_review_url3 = shop.shop_review_url3;
                     shop_review_url4 = shop.shop_review_url4;
+
+
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_main_url).into(imag_creator_shop);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_imag_url1).into(imag_creator_main1);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_imag_url2).into(imag_creator_main2);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_imag_url3).into(imag_creator_main3);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_menu_url1).into(imag_creator_menu1);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_menu_url2).into(imag_creator_menu2);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_menu_url3).into(imag_creator_menu3);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_menu_url4).into(imag_creator_menu4);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_review_url1).into(imag_creator_review1);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_review_url2).into(imag_creator_review2);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_review_url3).into(imag_creator_review3);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_review_url4).into(imag_creator_review4);
 
                 }
             }
@@ -281,11 +339,9 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
-        /*
-        getFirebaseDatabaseShop_uri();
-        Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_main_url).into(imag_creator_menu1);
-        text_creator_name.setText(shop_main_url);
-        */
+
+         getFirebaseDatabaseShop_uri();
+
         btn_creator_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -453,8 +509,6 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     imag_creator_shop.setImageBitmap(imag);
                     in.close();
                     includesForUploadFiles(imag_creator_shop,id,"shop_imag");
-                    shop_main_url = text_creator_glideuri.getText().toString();
-
 
 
                 }catch (Exception e){ }
@@ -464,6 +518,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
             }
 
         }
+        shop_main_url = text_creator_glideuri.getText().toString();
 
         if(requestCode == REQUEST_CODE2){
 
@@ -477,7 +532,6 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     imag_creator_main1.setImageBitmap(imag);
                     in.close();
                     includesForUploadFiles(imag_creator_main1,id,"main1_imag");
-                    shop_imag_url1 = text_creator_glideuri.getText().toString();
 
 
 
@@ -502,7 +556,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_main2,id,"main2_imag");
-                    shop_imag_url2 = text_creator_glideuri.getText().toString();
+
 
 
 
@@ -527,7 +581,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_main3,id,"main3_imag");
-                    shop_imag_url3 = text_creator_glideuri.getText().toString();
+
 
 
                 }catch (Exception e){ }
@@ -551,7 +605,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_menu1,id,"menu1_imag");
-                    shop_menu_url1 = text_creator_glideuri.getText().toString();
+
 
 
                 }catch (Exception e){ }
@@ -575,7 +629,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_menu2,id,"menu2_imag");
-                    shop_menu_url2 = text_creator_glideuri.getText().toString();
+
 
 
                 }catch (Exception e){ }
@@ -599,7 +653,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_menu3,id,"menu3_imag");
-                    shop_menu_url3 = text_creator_glideuri.getText().toString();
+
 
 
                 }catch (Exception e){ }
@@ -623,7 +677,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_menu4,id,"menu4_imag");
-                    shop_menu_url4 = text_creator_glideuri.getText().toString();
+
 
 
                 }catch (Exception e){ }
@@ -647,7 +701,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_review1,id,"review1_imag");
-                    shop_review_url1 = text_creator_glideuri.getText().toString();
+
 
 
                 }catch (Exception e){ }
@@ -671,7 +725,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_review2,id,"review2_imag");
-                    shop_review_url2 = text_creator_glideuri.getText().toString();
+
 
 
                 }catch (Exception e){ }
@@ -695,7 +749,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_review3,id,"review3_imag");
-                    shop_review_url3 = text_creator_glideuri.getText().toString();
+
 
 
                 }catch (Exception e){ }
@@ -719,7 +773,6 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_review4,id,"review4_imag");
-                    shop_review_url4 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
