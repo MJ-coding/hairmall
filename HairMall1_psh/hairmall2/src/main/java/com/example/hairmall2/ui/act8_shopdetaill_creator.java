@@ -57,7 +57,6 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
     private static final int REQUEST_CODE11 = 11;
     private static final int REQUEST_CODE12 = 12;
 
-
     private ImageView imag_creator_shop;
     private ImageView imag_creator_main1;
     private ImageView imag_creator_main2;
@@ -81,6 +80,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
 
     private String id;
     private String id_uri;
+    private String id_info;
 
     private String email;
     private String name;
@@ -133,6 +133,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
         Intent intent=new Intent(this.getIntent()); // MainPage로부터 받아옴
         id=intent.getStringExtra("id");
         id_uri = id + "_uri";
+        id_info = id + "_info";
 
         imag_creator_shop = findViewById(R.id.imag_creator_shop);
         imag_creator_main1 = findViewById(R.id.imag_creator_main1);
@@ -154,6 +155,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
 
         text_creator_glideuri = findViewById(R.id.text_creator_glideuri);
         imag_creator_glidetest = findViewById(R.id.imag_creator_glidetest);
+
 
         text_creator_name.setText(id);
 
@@ -233,14 +235,14 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     shop_review_url1, shop_review_url2, shop_review_url3, shop_review_url4,
                     reputation,
                     arrayReserve, arrayReview);
-            values = shop.toMap();
+            values = shop.toMapUri();
         }
-        childUpdates.put("/hairmall/shops/"+id_uri, values);
+        childUpdates.put("/hairmall/shops/"+id+"/"+id_uri, values);
         mRootRef.updateChildren(childUpdates);
     }
 
     public void getFirebaseDatabaseShop_uri(){
-        childRef = mRootRef.child("hairmall").child("shops").child(id_uri);
+        childRef = mRootRef.child("hairmall").child("shops").child(id).child(id_uri);
         childRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -279,11 +281,15 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
+        /*
+        getFirebaseDatabaseShop_uri();
+        Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_main_url).into(imag_creator_menu1);
+        text_creator_name.setText(shop_main_url);
+        */
         btn_creator_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 adduri(true);
-
             }
         });
 
@@ -447,6 +453,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     imag_creator_shop.setImageBitmap(imag);
                     in.close();
                     includesForUploadFiles(imag_creator_shop,id,"shop_imag");
+                    shop_main_url = text_creator_glideuri.getText().toString();
 
 
 
@@ -470,6 +477,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     imag_creator_main1.setImageBitmap(imag);
                     in.close();
                     includesForUploadFiles(imag_creator_main1,id,"main1_imag");
+                    shop_imag_url1 = text_creator_glideuri.getText().toString();
 
 
 
@@ -494,7 +502,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_main2,id,"main2_imag");
-
+                    shop_imag_url2 = text_creator_glideuri.getText().toString();
 
 
 
@@ -519,6 +527,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_main3,id,"main3_imag");
+                    shop_imag_url3 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
@@ -542,6 +551,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_menu1,id,"menu1_imag");
+                    shop_menu_url1 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
@@ -565,6 +575,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_menu2,id,"menu2_imag");
+                    shop_menu_url2 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
@@ -588,6 +599,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_menu3,id,"menu3_imag");
+                    shop_menu_url3 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
@@ -611,6 +623,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_menu4,id,"menu4_imag");
+                    shop_menu_url4 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
@@ -634,6 +647,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_review1,id,"review1_imag");
+                    shop_review_url1 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
@@ -657,6 +671,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_review2,id,"review2_imag");
+                    shop_review_url2 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
@@ -680,6 +695,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_review3,id,"review3_imag");
+                    shop_review_url3 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
@@ -703,6 +719,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     in.close();
 
                     includesForUploadFiles(imag_creator_review4,id,"review4_imag");
+                    shop_review_url4 = text_creator_glideuri.getText().toString();
 
 
                 }catch (Exception e){ }
