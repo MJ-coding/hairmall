@@ -1,9 +1,12 @@
 package com.example.hairmall2.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class act10_review extends AppCompatActivity {
+
+    //request code_
+    private final int PICK_GALLERY = 1;
+    private ImageView review_imageview_fir;
+   // private ImageView review_imageview_sec;
+    //private ImageView review_imageview_thir;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +79,38 @@ public class act10_review extends AppCompatActivity {
                         });
             }
         });
+
+
+
+        //리뷰이미지 갤러리에서 가져오기
+        review_imageview_fir = (ImageView)findViewById(R.id.register_fir_photo);
+     //   review_imageview_sec = (ImageView)findViewById(R.id.register_sec_photo);
+     //   review_imageview_thir = (ImageView)findViewById(R.id.register_thir_photo);
+
+        review_imageview_fir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        "image/*");
+                startActivityForResult(intent, PICK_GALLERY);
+
+            }
+        });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_GALLERY && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            Uri selectedImageUri = data.getData();
+            review_imageview_fir.setImageURI(selectedImageUri);
+
+        }
+
+
+    }
 }
