@@ -257,6 +257,9 @@ public class act3_login extends AppCompatActivity {
                     for(DataSnapshot ds : dataSnapshot.getChildren()){
                         String key = ds.getKey();
                         user1 user = ds.child(key+"_info").getValue(user1.class);
+                        if (user == null) {
+                            continue;
+                        }
                         String[] info = {user.getEmail(), user.getName(), user.getPhone(), user.getId(), user.getPw(),user.getMemo()};//ArrayStar 제외
                         String Result = info[0] + " " + info[1] + " " + info[2] + " " + info[3] + " " + info[4] + " " + info[5];
                         arrayIndex.add(key);

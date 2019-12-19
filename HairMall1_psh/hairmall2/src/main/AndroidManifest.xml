@@ -3,7 +3,7 @@
     package="com.example.hairmall2">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    //카메라 갤러리 허가
+    <!--카메라 갤러리 허가-->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
