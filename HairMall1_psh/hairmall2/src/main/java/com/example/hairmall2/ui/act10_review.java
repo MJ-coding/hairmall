@@ -60,12 +60,10 @@ public class act10_review extends AppCompatActivity {
                 String date = sdf.format(new Date());
 
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                //DB에 넣기
+                //DB에 리뷰 정보 넣기
                 Map<String, Object> data_info = new HashMap<>();
-                //*****추가구현할 부분***가게 이름 넣은듯이 다른부분도 넣기
                 data_info.put("shop_name", shop_name);
                 data_info.put("gpa", writeRank.getText().toString());//평점
-
                 //DB에 현재 시간 넣기
                 data_info.put("date_day", date);
                 data_info.put("review", writeReview.getText().toString());
