@@ -15,7 +15,7 @@ public class act8_shopdetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act8_shopdetail);
-
+        //리뷰작성버튼
         Button button =(Button)findViewById(R.id.write_review);
 
         button.setOnClickListener(new View.OnClickListener() {

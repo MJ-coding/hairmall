@@ -36,7 +36,7 @@ public class act10_review extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act10_review1);
-
+        //리뷰저장버튼
         Button saveButton = (Button)findViewById(R.id.save_button);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +78,17 @@ public class act10_review extends AppCompatActivity {
                                 Log.w("fail", "Error adding document", e);
                             }
                         });
+            }
+        });
+        //리뷰작성 취소시 그전 act8_shopdetail로 이
+        Button cancelButton =(Button)findViewById(R.id.review_cancel);
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getApplicationContext(),act8_shopdetail.class);
+                startActivity(intent);
+
             }
         });
 
