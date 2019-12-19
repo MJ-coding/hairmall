@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +42,12 @@ public class act10_review extends AppCompatActivity {
         //리뷰저장버튼
         Button saveButton = (Button)findViewById(R.id.save_button);
 
+        final TextView writeReview = (EditText)findViewById(R.id.write_review);
+        final TextView writeRank = (EditText)findViewById(R.id.write_rank);
+        final TextView writeStyle = (EditText)findViewById(R.id.write_style);
+
+
+
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,27 +64,36 @@ public class act10_review extends AppCompatActivity {
                 Map<String, Object> data_info = new HashMap<>();
                 //*****추가구현할 부분***가게 이름 넣은듯이 다른부분도 넣기
                 data_info.put("shop_name", shop_name);
-                data_info.put("gpa", gpa);//평점
+                data_info.put("gpa", writeRank.getText().toString());//평점
 
                 //DB에 현재 시간 넣기
                 data_info.put("date_day", date);
+                data_info.put("review", writeReview.getText().toString());
+                data_info.put("style", writeStyle.getText().toString());
 
 
 
                 // Add a new document with a generated ID
-                db.collection("users")
+                db.collection("review")
                         .add(data_info)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.d("sucess", "DocumentSnapshot added with ID: "
                                         + documentReference.getId());
+                                Toast myToast = Toast.makeText(getApplicationContext(),
+                                        "저장이 완료 되었습니다.", Toast.LENGTH_SHORT);
+                                myToast.show();
+                                onBackPressed();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.w("fail", "Error adding document", e);
+                                Toast myToast = Toast.makeText(getApplicationContext(),
+                                        "저장이 실패하였습니다..", Toast.LENGTH_SHORT);
+                                myToast.show();
                             }
                         });
             }

@@ -59,28 +59,28 @@
                 android:text="코드 헤어"/>
 
             <EditText
+                android:id="@+id/write_rank"
                 android:layout_width="0dp"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textSize="10pt"
-                android:textColor="#000"
-                android:inputType="numberDecimal"
                 android:hint="평점"
-                />
+                android:inputType="numberDecimal"
+                android:textColor="#000"
+                android:textSize="10pt"
+                android:textStyle="bold" />
 
 
             <EditText
+                android:id="@+id/write_style"
                 android:layout_width="0dp"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textSize="10pt"
-                android:textColor="#000"
-                android:inputType="none"
                 android:hint="스타일"
+                android:inputType="none"
                 android:privateImeOptions="defaultInputmode=korean"
-                />
+                android:textColor="#000"
+                android:textSize="10pt"
+                android:textStyle="bold" />
 
 
         </TableRow>

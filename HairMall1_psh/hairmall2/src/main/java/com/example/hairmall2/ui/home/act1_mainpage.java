@@ -117,6 +117,11 @@ public class act1_mainpage extends Fragment {
 
         //최신 날짜기준으로 review 3개 가져오기
 
+        final String[] testText = new String[3];
+        testText[0]="1번 리뷰";
+        testText[1]="2번 리뷰";
+        testText[2]="3번 리뷰";
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection("review").orderBy("date_day", Query.Direction.DESCENDING).limit(3).get()
@@ -125,8 +130,21 @@ public class act1_mainpage extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             //***추가구현부분****task성공시 DB에 shop_name가져와서 작업하기
+                            int count = 0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d("result", document.getId() + " => " + document.getData().get("shop_name"));
+                                String reviewTextString = "";
+                                if (document.getData().get("review") != null) {
+                                    reviewTextString = document.getData().get("review").toString();
+                                }
+                                else {
+                                    reviewTextString = "";
+                                }
+                                testText[count] = reviewTextString;
+                                if (count == 0) {
+                                    reviewText.setText(reviewTextString);
+                                }
+                                count += 1;
                             }
                         } else {
                             //task실패시 log남기
@@ -135,11 +153,6 @@ public class act1_mainpage extends Fragment {
                         }
                     }
                 });
-
-        final String[] testText = new String[3];
-        testText[0]="1번 리뷰";
-        testText[1]="2번 리뷰";
-        testText[2]="3번 리뷰";
 
         for (int i = 0; i < 3; i++) {
             reviewImage[i].setOnClickListener(new KnowIndexOnClickListener(i) {
@@ -173,9 +186,9 @@ public class act1_mainpage extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                        String string = dataSnapshot.getValue(String.class);
-                        text_test.setText(string);
-                        Log.d("getFirebaseDatabaes","key : " + text);
+                    String string = dataSnapshot.getValue(String.class);
+                    text_test.setText(string);
+                    Log.d("getFirebaseDatabaes","key : " + text);
 
                 }
             }
