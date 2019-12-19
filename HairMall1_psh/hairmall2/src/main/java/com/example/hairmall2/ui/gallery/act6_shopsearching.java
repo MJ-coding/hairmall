@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -35,7 +34,7 @@ public class act6_shopsearching extends Fragment {
         });
 
         //여기서 부터 해당 미용실actvity로 이동구현
-        ImageView fir_imageView = root.findViewById(R.id.shop_image1);
+        ImageView fir_imageView = root.findViewById(R.id.shop_image_fir);
         ImageView sec_imageView = root.findViewById(R.id.shop_image2);
         ImageView thr_imageView = root.findViewById(R.id.shop_image3);
 

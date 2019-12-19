@@ -144,16 +144,17 @@ public class act10_review extends AppCompatActivity {
                 for(int i = 0; i < 3; i++)
                 {
                     if(i<clipData.getItemCount()){
-                        Uri urione =  clipData.getItemAt(i).getUri();
+                        Uri uri =  clipData.getItemAt(i).getUri();
                         switch (i){
                             case 0:
-                                review_imageview_fir.setImageURI(urione);
+                                review_imageview_fir.setImageURI(uri);
+
                                 break;
                             case 1:
-                                review_imageview_sec.setImageURI(urione);
+                                review_imageview_sec.setImageURI(uri);
                                 break;
                             case 2:
-                                review_imageview_thir.setImageURI(urione);
+                                review_imageview_thir.setImageURI(uri);
                                 break;
                         }
                     }
