@@ -66,21 +66,25 @@ android:orientation="vertical" >
         android:textSize="15dp"
         android:layout_weight="1"
         android:background="#FFFDD1DE"/>
+
     <Button
+        android:id="@+id/call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="전화"
-        android:textSize="15dp"
         android:layout_weight="1"
+        android:background="#FFFDD1DE"
         android:padding="2dp"
-        android:background="#FFFDD1DE"/>
+        android:text="전화"
+        android:textSize="15dp" />
+
     <Button
+        android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="예약"
-        android:textSize="15dp"
         android:layout_weight="1"
-        android:background="#FFFDD1DE"/>
+        android:background="#FFFDD1DE"
+        android:text="채팅문의"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/write_review"

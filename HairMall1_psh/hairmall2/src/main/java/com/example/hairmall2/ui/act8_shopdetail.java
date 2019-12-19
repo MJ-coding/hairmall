@@ -1,6 +1,7 @@
 package com.example.hairmall2.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -53,7 +54,8 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
 
         //리뷰작성버튼
         Button button =(Button)findViewById(R.id.write_review);
-
+        Button call_button =(Button)findViewById(R.id.call);
+        Button chat_butt=(Button)findViewById(R.id.message);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +72,27 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
 
             }
         });
+
+        call_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                String tel ="tel:021111111";
+                startActivity(new Intent("android.intent.action.DIAL", Uri.parse(tel)));
+
+            }
+        });
+
+        chat_butt.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(),act9_privatetalk.class);
+                startActivity(intent);
+
+            }
+        });
     }
+
+
 
     public void getFirebaseDatabase(){
 
