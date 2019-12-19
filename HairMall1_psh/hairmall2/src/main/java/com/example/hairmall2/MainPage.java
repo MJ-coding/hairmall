@@ -1,12 +1,15 @@
 package com.example.hairmall2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,11 +35,16 @@ public class MainPage extends AppCompatActivity {
     private EditText edit_test;
     private Button btn_test;
     private TextView text_test;
+    private TextView textView;
+    private TextView textView2;
+    private TextView textView3;
     private String text;
 
     private String id;
 
     private String class_name;
+
+    private View header;
 
     /*
         public String getId() {
@@ -63,6 +71,8 @@ public class MainPage extends AppCompatActivity {
 
     public void goto_stylesearchingm(View v){
         Intent Act = new Intent(getApplicationContext(), act11_stylesearchingm.class);
+        Act.putExtra("id", id);
+        Act.putExtra("class_name", class_name);
         startActivity(Act);
     }
 
@@ -101,6 +111,21 @@ public class MainPage extends AppCompatActivity {
         Intent intent=new Intent(this.getIntent()); // 로그인부터시작 안하면 터짐 act1_mainpage도.
         id=intent.getStringExtra("id");
         class_name = intent.getStringExtra("class_name");
+
+        /* // 변수접근 현재 안됨
+        header = getLayoutInflater().inflate(R.layout.nav_header_number2, null, false);
+        textView = header.findViewById(R.id.textView);
+        textView.setText(id+"님 환영합니다!");
+
+        LinearLayout container = (LinearLayout) findViewById(R.id.container);
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.nav_header_number2, container, true );
+        textView2 = view.findViewById(R.id.textView);
+        textView2.setText(id+"님 환영합니다!");
+        */
+
+
+
         Log.d("DEBUG_mainpage",id);
         Log.d("DEBUG_mainpage",class_name);
 

@@ -33,7 +33,7 @@
     <!-- Favorite start-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="20dp"
         android:layout_weight="1.3"
         android:weightSum="11"
         android:orientation="horizontal">
@@ -55,12 +55,38 @@
     <!--Favorite end-->
 
     <!-- Favorite shop pictures start-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp">
+
+            <HorizontalScrollView
+                android:id="@+id/scroll_mypage_myshop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_mypage_shop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+
+            </HorizontalScrollView>
+
+
+
+        </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
         android:orientation="horizontal"
-        android:weightSum="11">
+        android:weightSum="11"
+        android:id="@+id/layout_mypage_shops">
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -98,7 +124,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:weightSum="11">
+            android:weightSum="11"
+            android:id="@+id/layout_mypage_shop_names">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -139,7 +166,7 @@
     <!-- reservation check -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="20dp"
         android:layout_weight="1.4"
         android:weightSum="11"
         android:orientation="horizontal">
@@ -150,7 +177,7 @@
             android:layout_weight="1"
             />
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="9"
             android:text="예약 확인"
@@ -163,7 +190,7 @@
     <!-- Reservation Table -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="2"
         android:orientation="horizontal"
         android:weightSum="11">
@@ -173,7 +200,7 @@
             android:layout_weight="1" />
         <TableLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="9"
             android:weightSum="9">
 
@@ -228,18 +255,18 @@
             android:layout_height="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="20dp"
         android:layout_weight="1.4"
         android:weightSum="11"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
             android:layout_weight="7" />
         <Button
             android:id="@+id/btn_mypage_setTime"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
             android:layout_weight="3"
             android:text="수정"
             android:background="#FF94B8"
@@ -250,7 +277,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="20dp"
         android:layout_weight="1.3"
         android:orientation="horizontal">
         <TextView
@@ -269,7 +296,7 @@
     <!-- 이름 layout-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="20dp"
         android:layout_weight="1"
         android:weightSum="11"
         android:orientation="horizontal"
@@ -301,7 +328,7 @@
     <!-- 연락처 layout-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="20dp"
         android:layout_weight="1"
         android:weightSum="11"
         android:orientation="horizontal"
@@ -333,7 +360,7 @@
     <!-- 주소 layout-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="20dp"
         android:layout_weight="1"
         android:weightSum="11"
         android:orientation="horizontal"
@@ -366,7 +393,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:weightSum="11"
             android:orientation="horizontal"
@@ -378,7 +405,7 @@
                 android:layout_weight="1"
                 />
             <TextView
-                android:text="비밀번호"
+                android:text="PW"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
@@ -404,7 +431,7 @@
         android:layout_weight="0.5"/>
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="0dp"
+    android:layout_height="20dp"
     android:layout_weight="1.4"
     android:orientation="horizontal"
     android:gravity="right"

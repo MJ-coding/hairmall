@@ -3,9 +3,8 @@
     package="com.example.hairmall2">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--카메라 갤러리 허가-->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +13,9 @@
         android:roundIcon="@drawable/hairmall"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.act8_shopdetail4"></activity>
+        <activity android:name=".ui.act8_shopdetail3" />
+        <activity android:name=".ui.act8_shopdetail2" />
         <activity android:name=".ui.act10_review" />
         <activity android:name=".ui.act9_privatetalk" />
         <activity android:name=".ui.act8_shopdetail" />
