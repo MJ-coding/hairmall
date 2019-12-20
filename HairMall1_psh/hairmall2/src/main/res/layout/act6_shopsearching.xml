@@ -42,7 +42,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1.6"
                     android:background="@drawable/map"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/mapbtn"/>
             </LinearLayout>
             <!-- 여기까지 상단부 지역 설정, 검색, 지도 -->
 

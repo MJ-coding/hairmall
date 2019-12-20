@@ -1,11 +1,13 @@
 package com.example.hairmall2.ui.gallery;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -72,6 +74,8 @@ public class act6_shopsearching extends Fragment implements View.OnClickListener
         ImageView sec_imageView = root.findViewById(R.id.shop_image2);
         ImageView thr_imageView = root.findViewById(R.id.shop_image3);
         ImageView for_imageView = root.findViewById(R.id.shop_image4);
+        Button mapbtn = root.findViewById(R.id.mapbtn);
+
 
         fir_imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +131,21 @@ public class act6_shopsearching extends Fragment implements View.OnClickListener
                 startActivity(intent);
             }
         });
+
+        mapbtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent mapintent = new Intent();
+                ComponentName mapcomponentName = new ComponentName(
+                        "com.example.hairmall2",
+                        "com.example.hairmall2.MapsActivity");
+
+                mapintent.setComponent(mapcomponentName);
+                startActivity(mapintent);
+
+            }
+        });
+
 
         return  root;
 
