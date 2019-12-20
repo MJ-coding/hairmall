@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hairmall2.R;
-import com.example.hairmall2.shop;
-import com.example.hairmall2.user1;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +32,7 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fir-test-7d2fa.firebaseio.com");
     DatabaseReference childRef;
 
+    private ImageView menu_imview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +61,7 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),act10_review.class);
+                Intent intent = new Intent(getApplicationContext(), act10_review.class);
                 //act6_shopsearching에서 설정해준 이름data 가져오기
                 String shop_name = getIntent().getStringExtra("shop_name");
                 String gpa =getIntent().getStringExtra("gpa");
@@ -85,9 +85,19 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
         chat_butt.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(),act9_privatetalk.class);
+                Intent intent = new Intent(getApplicationContext(), act9_privatetalk.class);
                 startActivity(intent);
 
+            }
+        });
+        //메뉴누르면 메뉴크게 보기
+        menu_imview=(ImageView)findViewById(R.id.shop1_menu1);
+
+        menu_imview.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent =new Intent(getApplicationContext(), act8_shop1_menu.class);
+                startActivity(intent);
             }
         });
     }

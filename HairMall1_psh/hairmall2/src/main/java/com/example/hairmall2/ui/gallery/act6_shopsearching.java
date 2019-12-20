@@ -82,7 +82,7 @@ public class act6_shopsearching extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 //intent(지금 data,넘어갈 activity)
                 shop_id = "xino";
-                Intent intent = new Intent(getContext(), act8_shopdetail.class);
+                Intent intent = new Intent(getContext(), com.example.hairmall2.ui.act8_shopdetail.class);
                 intent.putExtra("shop_name","지노헤어");
                 intent.putExtra("gpa","3.4");
                 intent.putExtra("user_id", id);
