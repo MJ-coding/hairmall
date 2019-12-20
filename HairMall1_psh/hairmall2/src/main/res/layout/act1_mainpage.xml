@@ -112,42 +112,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
-
         <ImageView
-            android:id="@+id/shop_image_fir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
+            android:src="@drawable/p"
             android:maxWidth="135dp"
             android:maxHeight="135dp"
-            android:src="@drawable/p" />
-
+            android:adjustViewBounds="true"
+            android:layout_weight="1"/>
         <ImageView
-            android:id="@+id/shop_image_sec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
+            android:src="@drawable/q"
             android:maxWidth="135dp"
             android:maxHeight="135dp"
-            android:src="@drawable/q" />
-
+            android:adjustViewBounds="true"
+            android:layout_weight="1" />
         <ImageView
-            android:id="@+id/shop_image_thir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@drawable/borderline"
+            android:src="@drawable/r"
             android:maxWidth="135dp"
             android:maxHeight="135dp"
+            android:adjustViewBounds="true"
+            android:layout_weight="1"
             android:padding="1dp"
-            android:src="@drawable/r" />
+            android:background="@drawable/borderline" />
     </LinearLayout>
 
         <TextView
-            android:id="@+id/shop_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/borderline"

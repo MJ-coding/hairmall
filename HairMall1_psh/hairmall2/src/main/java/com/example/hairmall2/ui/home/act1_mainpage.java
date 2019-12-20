@@ -108,20 +108,13 @@ public class act1_mainpage extends Fragment {
 
         //리뷰 텍스트
         final TextView reviewText = root.findViewById(R.id.review_text);
-        //오늘의 미용실 텍스트
-        final TextView shopText = root.findViewById(R.id.shop_text);
 
         final ImageView[] reviewImage = new ImageView[3];
-        final ImageView[] shopImage = new ImageView[3];
-
 
         reviewImage[0] = root.findViewById(R.id.recent_review1);
         reviewImage[1] = root.findViewById(R.id.recent_review2);
         reviewImage[2] = root.findViewById(R.id.recent_review3);
 
-        shopImage[0] = root.findViewById(R.id.shop_image_fir);
-        shopImage[1] = root.findViewById(R.id.shop_image_sec);
-        shopImage[2] = root.findViewById(R.id.shop_image_thir);
         //최신 날짜기준으로 review 3개 가져오기
 
         final String[] testText = new String[3];
@@ -129,11 +122,6 @@ public class act1_mainpage extends Fragment {
         testText[1]="2_등록된 리뷰가 없습니다.";
         testText[2]="3_등록된 리뷰가 없습니다.";
 
-        final String[] info_Text = new String[3];
-        info_Text[0]=" 아스카다 헤어 | 아스카다 헤어 디자인(숭실대점) ASKADA는 고객 특징을 분석하여 디자인하는 전문적인 " +
-                "디자인 살롱으로서 고객에 맞는 어...";
-        info_Text[1]="리안 헤어 | 기장추가나 숱추가 없이 브랜드 제품 정품사용. 저렴한 가격에 고퀄리티 헤어스타일을 완성해드립니다^^";
-        info_Text[2]="이철 헤어커커 | 재방문율 1위!직원과 더불어 함께 성장하고 성공하는 것! 고객을 한결같이 마음으로 대하라!";
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection("review").orderBy("date_day", Query.Direction.DESCENDING).limit(3).get()
@@ -190,27 +178,6 @@ public class act1_mainpage extends Fragment {
             });
         }
 
-        for ( int i=0; i<3;i++){
-        shopImage[i].setOnClickListener(new KnowIndexOnClickListener(i) {
-            public void onClick(View v) {
-                shopText.setText(info_Text[index]);
-                shopImage[index].setPadding(4, 4, 4, 4);
-                shopImage[index].setBackground(ContextCompat.getDrawable(context, R.drawable.borderline));
-
-
-                if (index == 0) {
-                    shopImage[1].setPadding(0, 0, 0, 0);
-                    shopImage[2].setPadding(0, 0, 0, 0);
-                } else if (index == 1) {
-                    shopImage[0].setPadding(0, 0, 0, 0);
-                    shopImage[2].setPadding(0, 0, 0, 0);
-                } else if (index == 2) {
-                    shopImage[0].setPadding(0, 0, 0, 0);
-                    shopImage[1].setPadding(0, 0, 0, 0);
-                }
-            }
-        });
-    }
 
 
         return root;

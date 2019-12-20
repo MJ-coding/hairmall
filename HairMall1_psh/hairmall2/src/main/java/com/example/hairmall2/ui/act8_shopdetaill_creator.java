@@ -215,7 +215,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult(); //예측불가
                     String downloadUristring = downloadUri.toString();
-                    Glide.with(act8_shopdetaill_creator.this).load(downloadUristring).into(imag_creator_glidetest);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(downloadUristring).into(imag_creator_glidetest);
                     text_creator_glideuri.setText(downloadUristring);
 
                     glideuri = downloadUristring;
@@ -309,21 +309,19 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                     shop_review_url3 = shop.shop_review_url3;
                     shop_review_url4 = shop.shop_review_url4;
 
-                    if (!shop.shop_main_url.equals(null)){
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_main_url).into(imag_creator_shop);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_imag_url1).into(imag_creator_main1);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_imag_url2).into(imag_creator_main2);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_imag_url3).into(imag_creator_main3);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_menu_url1).into(imag_creator_menu1);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_menu_url2).into(imag_creator_menu2);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_menu_url3).into(imag_creator_menu3);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_menu_url4).into(imag_creator_menu4);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_review_url1).into(imag_creator_review1);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_review_url2).into(imag_creator_review2);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_review_url3).into(imag_creator_review3);
-                        Glide.with(act8_shopdetaill_creator.this).load(shop_review_url4).into(imag_creator_review4);
-                    }
 
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_main_url).into(imag_creator_shop);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_imag_url1).into(imag_creator_main1);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_imag_url2).into(imag_creator_main2);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_imag_url3).into(imag_creator_main3);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_menu_url1).into(imag_creator_menu1);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_menu_url2).into(imag_creator_menu2);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_menu_url3).into(imag_creator_menu3);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_menu_url4).into(imag_creator_menu4);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_review_url1).into(imag_creator_review1);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_review_url2).into(imag_creator_review2);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_review_url3).into(imag_creator_review3);
+                    Glide.with(com.example.hairmall2.ui.act8_shopdetaill_creator.this).load(shop_review_url4).into(imag_creator_review4);
 
                 }
             }
@@ -516,7 +514,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -540,7 +538,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -565,7 +563,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -589,7 +587,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -613,7 +611,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -637,7 +635,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -661,7 +659,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -685,7 +683,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -709,7 +707,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -733,7 +731,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -757,7 +755,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }
@@ -780,7 +778,7 @@ public class act8_shopdetaill_creator extends AppCompatActivity {
                 }catch (Exception e){ }
 
             } else if(resultCode == RESULT_CANCELED){
-                Toast.makeText(act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.hairmall2.ui.act8_shopdetaill_creator.this, "사진 선택 취소" ,Toast.LENGTH_LONG).show();
             }
 
         }

@@ -1,22 +1,16 @@
 package com.example.hairmall2.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hairmall2.R;
-import com.example.hairmall2.act5_mypage_shopAdapter;
 import com.example.hairmall2.shop;
 import com.example.hairmall2.user1;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class act5_mypage extends AppCompatActivity implements act5_mypage_shopAdapter.OnItemClickListener {
+public class act5_mypage extends AppCompatActivity {
 
     private EditText edit_mypage_date;
     private EditText edit_mypage_shop;
@@ -81,17 +75,6 @@ public class act5_mypage extends AppCompatActivity implements act5_mypage_shopAd
     public ArrayList<String> arrayReserve = new ArrayList<>();
     public ArrayList<String> arrayReview = new ArrayList<>();
 
-    public ArrayList<String> arrayStar = new ArrayList<>();
-
-    private RecyclerView recycler_mypage_shop;
-    private act5_mypage_shopAdapter mact5_mypage_shopAdapter;
-    private Context mContext;
-
-    public String id_star;
-
-    private LinearLayout layout_mypage_shops;
-    private LinearLayout layout_mypage_shop_names;
-
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fir-test-7d2fa.firebaseio.com");
     DatabaseReference childRef;
 
@@ -99,8 +82,6 @@ public class act5_mypage extends AppCompatActivity implements act5_mypage_shopAd
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act5_mypage);
-
-        mContext = this;
 
         Intent intent=new Intent(this.getIntent()); // MainPage로부터 받아옴
         id=intent.getStringExtra("id");
@@ -123,57 +104,9 @@ public class act5_mypage extends AppCompatActivity implements act5_mypage_shopAd
         btn_mypage_creator = findViewById(R.id.btn_mypage_creator);
         btn_mypage_creator.setVisibility(View.GONE);
 
-        layout_mypage_shops = findViewById(R.id.layout_mypage_shops);
-        layout_mypage_shop_names = findViewById(R.id.layout_mypage_shop_names);
-
-        layout_mypage_shops.setVisibility(View.GONE);
-        layout_mypage_shop_names.setVisibility(View.GONE);
-
         if (class_name.equals("shops")){
             btn_mypage_creator.setVisibility(View.VISIBLE);
         }
-
-        //arrayStar.add("xino");
-        //arrayStar.add("riahn");
-        //arrayStar.add("leechul");
-        //arrayStar.add("pschair");
-
-        Log.e("RecyclerView ::", "A");
-
-
-
-
-    }
-
-    private void recycler_init(){
-        recycler_mypage_shop = findViewById(R.id.recycler_mypage_shop);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mContext, RecyclerView.HORIZONTAL, false);
-        recycler_mypage_shop.setLayoutManager(mLayoutManager);
-
-        mact5_mypage_shopAdapter = new act5_mypage_shopAdapter(mContext, arrayStar);
-        mact5_mypage_shopAdapter.setOnitemClickListener(mOnItemClickListener);
-        recycler_mypage_shop.setAdapter(mact5_mypage_shopAdapter);
-
-        ArrayList<String> A = arrayStar;
-
-        ArrayList<String> B = mact5_mypage_shopAdapter.list_string;
-
-
-
-    }
-
-    private act5_mypage_shopAdapter.OnItemClickListener mOnItemClickListener = new act5_mypage_shopAdapter.OnItemClickListener() {
-        @Override
-        public void onItemClick(View view, String s) {
-            Log.e("RecyclerView ::", s);
-            int pos = mact5_mypage_shopAdapter.pos;
-            Log.e("RecyclerView ::", Integer.toString(pos));
-        }
-    };
-
-    @Override
-    public void onItemClick(View view, String str){
-        Log.e("RecyclerView ::", str);
     }
 
     public final void user_setTime(boolean add){
@@ -251,7 +184,6 @@ public class act5_mypage extends AppCompatActivity implements act5_mypage_shopAd
                     String Result = info[0] + " " + info[1] + " " + info[2] + " " + info[3] + " " + info[4] + " " + info[5] + " " + info[6] + " " + info[7] + " " + info[8];
                     Log.d("getFirebaseDatabase", "info : " + Result);
 
-
                 }
             }
 
@@ -260,82 +192,6 @@ public class act5_mypage extends AppCompatActivity implements act5_mypage_shopAd
                 Log.w("Tag", "Failed to read value.", databaseError.toException());
             }
         });
-
-    }
-
-    public void getFirebaseDatabaseStar(){
-        Log.d("Recycler","star : " + "SSTTAARRTT");
-        id_star = id+"_star";
-        childRef = mRootRef.child("hairmall").child(class_name).child(id).child(id_star);
-        Log.d("Recycler","star class_name : " + class_name);
-        Log.d("Recycler","star id : " + id);
-        Log.d("Recycler","star  id_star : " + id_star);
-        childRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    arrayStar.clear();
-                    for(DataSnapshot ds : dataSnapshot.getChildren()){
-                        String key = ds.getKey();
-                        String star = ds.getValue(String.class);
-
-
-                        if (star.equals("star")) {
-                            //arrayStar.add(key);
-                            Log.d("Recycler","star : " + star);
-                            getFirebaseDatabaseStarUri(key);
-                        }else {
-                            Log.d("Recycler","star : " + "NNNNN");
-                        }
-
-
-
-                        //recycler_init();
-                        //mact5_mypage_shopAdapter.notifyDataSetChanged();
-
-
-                    }
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("Tag", "Failed to read value.", databaseError.toException());
-            }
-        });
-
-    }
-
-    public void getFirebaseDatabaseStarUri(String shop_id){
-        final String temp_shop_id = shop_id;
-
-        childRef = mRootRef.child("hairmall").child("shops").child(shop_id).child(shop_id+"_uri").child("shop_main_url");
-
-        childRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    String uri = dataSnapshot.getValue(String.class);
-                    String[] info = {temp_shop_id, uri};
-                    String Result = info[0]+" "+info[1];
-                    arrayStar.add(Result);
-                    Log.d("Recycler","arraysize" + arrayStar.size());
-                    Log.d("Recycler","key"+Result);
-
-                    recycler_init();
-                    mact5_mypage_shopAdapter.notifyDataSetChanged();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("Tag", "Failed to read value.", databaseError.toException());
-            }
-        });
-
-
 
     }
 
@@ -377,15 +233,11 @@ public class act5_mypage extends AppCompatActivity implements act5_mypage_shopAd
     @Override
     public void onStart(){
         super.onStart();
-
-
         if (class_name.equals("users")){
             getFirebaseDatabase();
         } else if (class_name.equals("shops")){
             getFirebaseDatabaseShop();
         }
-        getFirebaseDatabaseStar();
-
 
         Log.d("DEBUG_mypage", "info : " + memo_date);
 
