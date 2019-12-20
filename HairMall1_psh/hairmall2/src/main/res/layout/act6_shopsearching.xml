@@ -42,9 +42,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1.6"
                     android:background="@drawable/map"
-                    android:layout_marginLeft="5dp"
-                    android:onClick="onClick"
-                    android:id="@+id/mapbtn"/>
+                    android:layout_marginLeft="5dp"/>
             </LinearLayout>
             <!-- 여기까지 상단부 지역 설정, 검색, 지도 -->
 
@@ -66,7 +64,7 @@
                     android:layout_weight="0.3"/>
 
                 <ImageView
-                    android:id="@+id/shop_image1"
+                    android:id="@+id/shop_image_fir"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
@@ -122,6 +120,7 @@
                     android:singleLine="true"
                     android:ellipsize="end"/>
                 <ImageView
+                    android:id="@+id/imag_searching_star1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.8"
@@ -153,6 +152,7 @@
                     android:singleLine="true"
                     android:ellipsize="end"/>
                 <ImageView
+                    android:id="@+id/imag_searching_star2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.8"
@@ -198,7 +198,7 @@
                     android:layout_weight="0.4"/>
 
                 <ImageView
-                    android:id="@+id/image_shop4"
+                    android:id="@+id/shop_image4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
@@ -240,6 +240,7 @@
                     android:singleLine="true"
                     android:ellipsize="end"/>
                 <ImageView
+                    android:id="@+id/imag_searching_star3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.8"
@@ -271,6 +272,7 @@
                     android:singleLine="true"
                     android:ellipsize="end"/>
                 <ImageView
+                    android:id="@+id/imag_searching_star4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.8"
