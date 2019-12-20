@@ -27,6 +27,8 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
     private String id;
     private String star;
 
+    private String realstar;
+
     private Button btn_creator_star;
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fir-test-7d2fa.firebaseio.com");
@@ -128,6 +130,7 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
                             Log.d("shopdetail","keykey "+key);
                             if (star.equals("star")) {
                                 btn_creator_star.setText("★");
+                                realstar = btn_creator_star.getText().toString();
                                 Log.d("shopdetail","starstar "+star);
                             }
                             break;
@@ -153,6 +156,8 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
         id = user_id;
         id_star = id+"_star";
 
+        realstar = btn_creator_star.getText().toString();
+
         getFirebaseDatabase();
 
     }
@@ -164,7 +169,7 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
 
         switch (v.getId()){
             case R.id.btn_creator_star:
-                String realstar = btn_creator_star.getText().toString();
+                //realstar = btn_creator_star.getText().toString();
                 if (realstar.equals("☆")){
 
                     childRef = mRootRef.child("hairmall").child(class_name).child(id).child(id_star).child(shop_id);
