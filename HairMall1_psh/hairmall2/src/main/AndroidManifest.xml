@@ -48,6 +48,7 @@
         <activity android:name=".ui.act5_mypage" />
         <activity android:name=".ui.act4_join" />
         <activity android:name=".ui.act8_shopdetaill_creator" />
+        <activity android:name=".ui.act8_shop1_menu" />
         <activity android:name=".ui.act3_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
