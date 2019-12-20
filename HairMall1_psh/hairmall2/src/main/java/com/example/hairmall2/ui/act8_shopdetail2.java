@@ -23,7 +23,6 @@ public class act8_shopdetail2 extends AppCompatActivity  implements View.OnClick
     private String shop_id;
     private String id_star;
     private String id;
-    private String star;
 
     private Button btn_creator_star;
 

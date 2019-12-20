@@ -25,16 +25,13 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
     private String shop_id;
     private String id_star;
     private String id;
-    private String star;
 
-    private String realstar;
 
     private Button btn_creator_star;
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fir-test-7d2fa.firebaseio.com");
     DatabaseReference childRef;
 
-    private ImageView menu_imview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +90,7 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
             }
         });
         //메뉴누르면 메뉴크게 보기
-        menu_imview=(ImageView)findViewById(R.id.shop1_menu1);
+        ImageView menu_imview=(ImageView)findViewById(R.id.menu_fir);
 
         menu_imview.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -130,7 +127,7 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
                             Log.d("shopdetail","keykey "+key);
                             if (star.equals("star")) {
                                 btn_creator_star.setText("★");
-                                realstar = btn_creator_star.getText().toString();
+                                //realstar = btn_creator_star.getText().toString();
                                 Log.d("shopdetail","starstar "+star);
                             }
                             break;
@@ -156,7 +153,7 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
         id = user_id;
         id_star = id+"_star";
 
-        realstar = btn_creator_star.getText().toString();
+       // realstar = btn_creator_star.getText().toString();
 
         getFirebaseDatabase();
 
@@ -169,9 +166,9 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
 
         switch (v.getId()){
             case R.id.btn_creator_star:
-                //realstar = btn_creator_star.getText().toString();
+                String realstar = btn_creator_star.getText().toString();
                 if (realstar.equals("☆")){
-
+                    //String realstar = btn_creator_star.getText().toString();
                     childRef = mRootRef.child("hairmall").child(class_name).child(id).child(id_star).child(shop_id);
                     childRef.setValue("star");
                     btn_creator_star.setText("★");
