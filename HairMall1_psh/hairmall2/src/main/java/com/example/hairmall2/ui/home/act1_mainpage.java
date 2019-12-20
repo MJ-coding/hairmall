@@ -1,6 +1,8 @@
 package com.example.hairmall2.ui.home;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +22,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hairmall2.KnowIndexOnClickListener;
 import com.example.hairmall2.R;
+import com.example.hairmall2.ui.act8_shop1_menu;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -212,6 +215,16 @@ public class act1_mainpage extends Fragment {
         });
     }
 
+
+        ImageView menu_imview =root.findViewById(R.id.add_image);
+
+        menu_imview.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent =new Intent(Intent.ACTION_VIEW, Uri.parse("http://xinohair.com/"));
+                startActivity(intent);
+            }
+        });
 
         return root;
     }

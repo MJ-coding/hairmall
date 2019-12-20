@@ -94,12 +94,13 @@
             android:text=" 코드헤어 | ★5/5 | eun8**** | 시컬펌 만족스럽게 나왔어요 일인 전담하여 시술 끝내주시고 손 다치셨는데 끝까지 웃으면서 해주셨어요 가격..." />
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="84dp"
-        android:layout_weight="1"
-        android:padding="5dp"
-        android:src="@drawable/ad2" />
+        <ImageView
+            android:id="@+id/add_image"
+            android:layout_width="wrap_content"
+            android:layout_height="84dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:src="@drawable/ad2" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

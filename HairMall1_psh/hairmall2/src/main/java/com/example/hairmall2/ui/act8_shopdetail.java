@@ -90,7 +90,7 @@ public class act8_shopdetail extends AppCompatActivity implements View.OnClickLi
             }
         });
         //메뉴누르면 메뉴크게 보기
-        ImageView menu_imview=(ImageView)findViewById(R.id.menu_fir);
+        ImageView menu_imview =(ImageView)findViewById(R.id.menu_fir);
 
         menu_imview.setOnClickListener(new View.OnClickListener(){
             @Override
