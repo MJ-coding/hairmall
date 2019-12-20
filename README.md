@@ -1,2 +1,0 @@
-# hairmall
-hairmall APP android
