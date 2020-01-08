@@ -37,8 +37,7 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
-        <activity android:name=".puthairstyles">
-        </activity>
+
         <activity android:name=".ui.act8_shopdetail4" />
         <activity android:name=".ui.act8_shopdetail3" />
         <activity android:name=".ui.act8_shopdetail2" />
